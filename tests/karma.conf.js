@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+process.env.CHROME_BIN = require('puppeteer').executablePath()
 
 var release = process.argv.includes('--release');
 var sourceFiles;
@@ -84,7 +85,7 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
+        browsers: ['ChromeHeadless'],
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
